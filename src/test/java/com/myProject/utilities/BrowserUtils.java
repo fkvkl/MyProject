@@ -6,10 +6,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class BrowserUtils {
 
@@ -180,7 +178,6 @@ public class BrowserUtils {
         }
     }
 
-
     /**
      * Verifies whether the element is displayed on page
      *
@@ -196,7 +193,6 @@ public class BrowserUtils {
 
         }
     }
-
 
     /**
      * Waits for element to be not stale
@@ -228,7 +224,6 @@ public class BrowserUtils {
         }
     }
 
-
     /**
      * Clicks on an element using JavaScript
      *
@@ -238,7 +233,6 @@ public class BrowserUtils {
         ((JavascriptExecutor) Driver.get()).executeScript("arguments[0].scrollIntoView(true);", element);
         ((JavascriptExecutor) Driver.get()).executeScript("arguments[0].click();", element);
     }
-
 
     /**
      * Scrolls down to an element using JavaScript
@@ -336,7 +330,6 @@ public class BrowserUtils {
 
     }
 
-
     /**
      * This method will recover in case of exception after unsuccessful the click,
      * and will try to click on element again.
@@ -374,7 +367,4 @@ public class BrowserUtils {
     public static void waitForPresenceOfElement(By by, long time) {
         new WebDriverWait(Driver.get(), time).until(ExpectedConditions.presenceOfElementLocated(by));
     }
-
-
-
 }

@@ -13,11 +13,9 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.Color;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 
 public class CalendarStepDefinitions {
     String user = null;
@@ -36,7 +34,6 @@ public class CalendarStepDefinitions {
         new HomePage().navigateToMenu(menu);
         BrowserUtils.waitForPageToLoad(5);
     }
-
 
     @When("user clicks add and enters the below event details")
     public void user_clicks_add_and_enters_the_below_event_details(Map<String, String> data) {
@@ -67,9 +64,7 @@ public class CalendarStepDefinitions {
         calendarPage.selectColor(data.get("Event color"));
         Select selectAvailability = new Select(calendarPage.availability);
         selectAvailability.selectByVisibleText(data.get("Availability"));
-
     }
-
 
     @Then("user should be able to add event by clicking SAVE button and display event on calendar")
     public void user_should_be_able_to_add_event_by_clicking_SAVE_button_and_display_event_on_calendar() {
@@ -137,7 +132,6 @@ public class CalendarStepDefinitions {
         Assert.assertEquals(availability, actual);
     }
 
-
     @Then("user should be able to change his-her event's name as {string}")
     public void user_should_be_able_to_change_his_her_event_s_name_as(String string) {
         event_name = string;
@@ -192,7 +186,6 @@ public class CalendarStepDefinitions {
             participantList.add(participant.getText());
         }
         Assert.assertTrue(participantList.contains(newAttendee));
-
     }
 
     @Then("user should not be able to display HR user's event on his-her calendar")
@@ -239,12 +232,10 @@ public class CalendarStepDefinitions {
         calendarPage.participationStatusField.click();
         calendarPage.participationInvited.click();
         calendarPage.reset.click();
-
     }
 
     @Then("user should be able to reset user input fields to {string}")
     public void user_should_be_able_to_reset_user_input_fields_to(String expected) {
-
         String actual1 = calendarPage.eventWithParticipants.getText();
         String actual2 = calendarPage.participationStatusField.getText();
         Assert.assertEquals(expected, actual1);
@@ -256,5 +247,4 @@ public class CalendarStepDefinitions {
         calendarPage.save.click();
         Assert.assertFalse(calendarPage.checkEvents(event_name, event_date));
     }
-
 }

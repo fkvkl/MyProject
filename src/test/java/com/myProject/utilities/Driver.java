@@ -14,13 +14,11 @@ import org.openqa.selenium.safari.SafariDriver;
 
 public class Driver {
     private Driver() {
-
     }
 
     private static WebDriver driver;
 
     public static WebDriver get() {
-        // Test
         if (driver == null) {
             // this line will tell which browser should open based on the value from properties file
             String browser = ConfigurationReader.get("browser");
@@ -47,14 +45,12 @@ public class Driver {
                     WebDriverManager.iedriver().setup();
                     driver = new InternetExplorerDriver();
                     break;
-
                 case "edge":
                     if (!System.getProperty("os.name").toLowerCase().contains("windows"))
                         throw new WebDriverException("Your OS doesn't support Edge");
                     WebDriverManager.edgedriver().setup();
                     driver = new EdgeDriver();
                     break;
-
                 case "safari":
                     if (!System.getProperty("os.name").toLowerCase().contains("mac"))
                         throw new WebDriverException("Your OS doesn't support Safari");
@@ -62,9 +58,7 @@ public class Driver {
                     driver = new SafariDriver();
                     break;
             }
-
         }
-
         return driver;
     }
 
